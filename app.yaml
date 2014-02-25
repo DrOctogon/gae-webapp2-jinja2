@@ -1,0 +1,46 @@
+application: gae-boilerplate
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: true
+
+default_expiration: "30m"
+
+env_variables:
+  DEBUG: true
+
+libraries:
+- name: webapp2
+  version: latest
+- name: jinja2
+  version: latest
+
+handlers:
+- url: /static
+  static_dir: static/
+
+- url: /.*
+  script: main.app
+
+builtins:
+- deferred: off
+- app_stats: off
+
+
+#########################
+skip_files:
+- ^(.*/)?app\.yaml
+- ^(.*/)?app\.yml
+- ^(.*/)?index\.yaml
+- ^(.*/)?index\.yml
+- ^(.*/)?#.*#
+- ^(.*/)?.*~
+- ^(.*/)?.*\.py[co]
+- ^(.*/)?.*/RCS/.*
+- ^(.*/)?\..*
+- ^(.*/)?.*\.bak
+- ^(.*/)?.*\.swp
+- ^(.*/)?.*\.gitignore
+- ^(.*/)?.*\.md
+- ^(.*/)?gruntfile\.js
+- ^(.*/)?package\.json
