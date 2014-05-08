@@ -24,7 +24,7 @@ handlers:
 
 builtins:
 - deferred: off
-- app_stats: off
+- appstats: off
 
 
 #########################
